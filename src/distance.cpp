@@ -8,9 +8,9 @@ float getDistance(int trigPin, int echoPin) {
 
     // Send out an ultrasound signal using the trigger pin. When this bounces, it will be received by the echoPin.
     digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
+    delayMicroseconds(1);
     digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
+    delayMicroseconds(3);
     digitalWrite(trigPin, LOW);
 
     // Listen for how long the echoPin is HIGH. When the sound waves hit the receiver, it turns the Echo pin high for however long the waves were traveling for.

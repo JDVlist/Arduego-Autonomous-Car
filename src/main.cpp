@@ -45,14 +45,16 @@ void loop() {
   Serial.print("Distance [cm]: ");
   Serial.println(distance);
 
-  if (distance < 10) {
+  if (distance < 25) {
+    Serial.print("Obstacle detected! Rotating in situ...");
     stop(directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
     rotate_in_situ(90, 500, directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
   }
   else {
+    Serial.print("No obstacle detected! Driving straight...");
     drive_straight(500, directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
   }
   
   // Small delay for stable readings
-  delay(1);
+  delay(5);
 }
