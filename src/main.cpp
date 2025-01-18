@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <functions.h>
-#include <trackcar.h>
 
 // Motor A
 const int directionPinA = 12;
@@ -16,9 +15,6 @@ const int brakePinB = 8;
 const int buzzerPin = 5;
 const int ultraSend = 6;
 const int ultraRecieve = 7;
-
-// Create an instance of the TrackCar class
-TrackCar car(directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
 
 void setup() {
   
@@ -41,8 +37,6 @@ void setup() {
 
   // Initialize the Serial (pc console)
   Serial.begin(9600);
-
-  
 }
 
 void loop() {
@@ -52,13 +46,11 @@ void loop() {
   Serial.println(distance);
 
   if (distance < 10) {
-    car.stop();
-    car.rotate_in_situ(90, 500);
-    // rotate_in_situ(90, 500, directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
+    stop(directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
+    rotate_in_situ(90, 500, directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
   }
   else {
-    car.drive_straight(500);
-    // drive_straight(100, 500, directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
+    drive_straight(500, directionPinA, directionPinB, brakePinA, brakePinB, pwmPinA, pwmPinB);
   }
   
   // Small delay for stable readings

@@ -1,9 +1,9 @@
 #ifndef DISTANCE_H
 #define DISTANCE_H
 
-void rotate_in_situ(int degrees, int work_duty, int directionPinA, int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);
 
-void drive_straight(int time, int work_duty, int directionPinA, int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);
+// void rotate_in_situ(int degrees, int work_duty, int directionPinA, int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);
+// void drive_straight(int time, int work_duty, int directionPinA, int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);
 
 // Function that returns the distance. Assumes usage of the HC-SR04 ultrasonic sensor.
 // Takes up 15 [ms].
@@ -16,5 +16,9 @@ void drive_straight(int time, int work_duty, int directionPinA, int directionPin
 //  Returns:
 // - distance (float) in [cm]. 
 float getDistance(int trigPin, int echoPin);
+
+void rotate_in_situ(int degrees, int work_duty, int directionPinA, int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);
+void drive_straight(int work_duty, int directionPinA, int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);
+void stop(int directionPinB, int brakePinA, int brakePinB, int pwmPinA, int pwmPinB);   
 
 #endif
