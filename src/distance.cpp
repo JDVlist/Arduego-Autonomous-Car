@@ -5,6 +5,7 @@ float getDistance(int trigPin, int echoPin) {
 
     float duration;
     float distance;
+    int test = 123; 
 
     // Send out an ultrasound signal using the trigger pin. When this bounces, it will be received by the echoPin.
     digitalWrite(trigPin, LOW);
